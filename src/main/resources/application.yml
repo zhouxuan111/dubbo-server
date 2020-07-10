@@ -3,14 +3,21 @@ dubbo:
     name: dubbo-provider
   registry:
     address: zookeeper://127.0.0.1:2181
+    #关闭注册中心启动时检查(注册失败时报错)
+    check: false
   protocol:
     name: dubbo
     serialization: hessian2
-    port: 20880
+    port: 20882
   provider:
     timeout: 1000
+  #关闭所有服务的启动检查(没有服务时报错)
+  consumer:
+    check: false
+
+
 server:
-  port: 8082
+  port: 8081
 spring:
   application:
     name: dubbo-provider
